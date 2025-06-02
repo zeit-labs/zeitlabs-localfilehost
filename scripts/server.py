@@ -1,6 +1,5 @@
 import http.server
 import ssl
-import sys
 import os
 
 ASSETS_DIR = '/assets'
@@ -11,7 +10,10 @@ os.chdir(ASSETS_DIR)
 
 handler = http.server.SimpleHTTPRequestHandler
 
-httpd = http.server.ThreadingHTTPServer(('0.0.0.0', 8888), handler)
+httpd = http.server.ThreadingHTTPServer((
+    '0.0.0.0', int(os.getenv('LOCAL_FILE_HOST_PORT', 8888))
+), handler)
+
 httpd.socket = ssl.wrap_socket(
     httpd.socket,
     certfile=CERT_FILE,

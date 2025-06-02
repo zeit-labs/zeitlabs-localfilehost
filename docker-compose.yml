@@ -5,9 +5,9 @@ services:
     ports:
       - "${LOCAL_FILE_HOST_PORT:-8888}:8888"
     volumes:
-      - ./certs:/certs
-      - ./assets:/assets
-      - ./scripts:/scripts
+      - ./certs:/certs:cached
+      - ./assets:/assets:cached
+      - ./scripts:/scripts:cached
     environment:
       HOST_USER: "${HOST_USER:-1000}"
       HOST_GROUP: "${HOST_GROUP:-1000}"

@@ -22,6 +22,32 @@ Usage
 
 3. Access your files via HTTPS at: https://localhost:8888/
 
+4. Trust the self-signed certificate in your browser. You may need to add an exception for the certificate. To do this:
+
+   - **Firefox**:
+
+     1. Open Firefox and navigate to `Settings` > `Privacy & Security`.
+
+     2. Scroll down to the `Certificates` section and click `View Certificates`.
+
+     3. In the `Authorities` tab, click `Import`.
+
+     4. Select the `./certs/rootCA.pem` file and check the box to trust the certificate for websites.
+
+     5. Click `OK` to save.
+
+   - **Chrome**:
+
+     1. Open Chrome and navigate to `Settings` > `Privacy and Security` > `Security`.
+
+     2. Under `Advanced`, click `Manage Certificates`.
+
+     3. In the `Custom` tab, click `Imported by you`.
+
+     4. In the `Trusted Certificated` click `Import`.
+
+     5. Select the `./certs/rootCA.pem` file and check the box to trust the certificate for websites.
+
 Notes
 -----
 
