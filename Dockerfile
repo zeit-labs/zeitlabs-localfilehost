@@ -10,9 +10,8 @@ RUN wget -O /usr/local/bin/mkcert https://github.com/FiloSottile/mkcert/releases
 
 WORKDIR /app
 
-COPY scripts /app/scripts
-
-RUN chmod +x /app/scripts/entrypoint.sh
+COPY ./main_entry.sh /app/main_entry.sh
+RUN chmod +x /app/main_entry.sh
 
 RUN mkdir /.local
 
@@ -25,4 +24,4 @@ RUN chown -R ${HOST_USER}:${HOST_GROUP} /app
 RUN chown -R ${HOST_USER}:${HOST_GROUP} /.local
 USER ${HOST_USER}:${HOST_GROUP}
 
-ENTRYPOINT ["/app/scripts/entrypoint.sh"]
+ENTRYPOINT ["/app/main_entry.sh"]
